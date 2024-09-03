@@ -10,3 +10,12 @@ spring:
     hibernate:
       ddl-auto=none:
 
+# ******************* Tomcat Access logs configuration ***************
+server.tomcat.accesslog.enabled: true
+server.tomcat.basedir: tomcat
+server.tomcat.accesslog.directory: logs
+server.tomcat.accesslog.suffix: .log
+server.tomcat.accesslog.prefix: access_log
+server.tomcat.accesslog.file-date-format: .yyyy-MM-dd
+server.tomcat.accesslog.pattern: '{ "clientip":"%h", "log_date":"%t", "rawrequest_str":"%r", "response_int":%s, "bytes_int":%B, "response_time_int":%D, "referrer_stn":"%{Referer}i", "agent_stn":"%{User-agent}i", "X-B3-TraceId":"%{X-B3-TraceId}i", "X-B3-SpanId":"%{X-B3-SpanId}i", "X-B3-ParentSpanId":"%{X-B3-ParentSpanId}i" }'
+
