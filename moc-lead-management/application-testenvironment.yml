@@ -1,0 +1,7 @@
+spring.application.name: moc-lead-management
+server.port: 9092
+
+# **************** Secrets file Path ********************8
+
+secrets:
+  filePath: file:///etc/config/secrets/testenvironment
