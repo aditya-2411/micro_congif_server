@@ -5,3 +5,8 @@ jwt.secret: mocsecurity
 secrets:
   filePath: file:///etc/config/secrets/default
 
+spring:
+  jpa:
+    hibernate:
+      ddl-auto=none:
+
