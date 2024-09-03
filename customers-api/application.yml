@@ -1,6 +1,16 @@
-spring.application.name: customers-api
-server.port: 8080
-jwt.secret: mocsecurity
+spring:
+  application:
+    name: customers-api
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: file:///etc/config/secrets/default
+
+server:
+  port: 8080
+jwt:
+  secret: mocsecurity
 
 secrets:
   filePath: file:///etc/config/secrets/default
@@ -8,14 +18,16 @@ secrets:
 spring:
   jpa:
     hibernate:
-      ddl-auto=none:
+      ddl-auto: none
 
 # ******************* Tomcat Access logs configuration ***************
-server.tomcat.accesslog.enabled: true
-server.tomcat.basedir: tomcat
-server.tomcat.accesslog.directory: logs
-server.tomcat.accesslog.suffix: .log
-server.tomcat.accesslog.prefix: access_log
-server.tomcat.accesslog.file-date-format: .yyyy-MM-dd
-server.tomcat.accesslog.pattern: '{ "clientip":"%h", "log_date":"%t", "rawrequest_str":"%r", "response_int":%s, "bytes_int":%B, "response_time_int":%D, "referrer_stn":"%{Referer}i", "agent_stn":"%{User-agent}i", "X-B3-TraceId":"%{X-B3-TraceId}i", "X-B3-SpanId":"%{X-B3-SpanId}i", "X-B3-ParentSpanId":"%{X-B3-ParentSpanId}i" }'
-
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      basedir: tomcat
+      directory: logs
+      suffix: .log
+      prefix: access_log
+      file-date-format: .yyyy-MM-dd
+      pattern: '{ "clientip":"%h", "log_date":"%t", "rawrequest_str":"%r", "response_int":%s, "bytes_int":%B, "response_time_int":%D, "referrer_stn":"%{Referer}i", "agent_stn":"%{User-agent}i", "X-B3-TraceId":"%{X-B3-TraceId}i", "X-B3-SpanId":"%{X-B3-SpanId}i", "X-B3-ParentSpanId":"%{X-B3-ParentSpanId}i" }'
