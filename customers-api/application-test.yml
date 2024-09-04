@@ -1,0 +1,6 @@
+spring.application.name: customers-api
+server.port: 8080
+jwt.secret: mocsecurity
+
+secrets:
+  filePath: file:///etc/config/secrets/test
